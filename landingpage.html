@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> AUTHORIZATION </title>
+    <link rel="stylesheet" href="style.css" type="text/css" >
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">  
+
+    <div class="bg"></div>
+    <div class="headerbg"></div>
+
+</head>
+<body>
+    <section>
+        <header>
+            <a href="https://www.pup.edu.ph/" class="logo"><img src="puplogo.png"></a>
+            <ul>
+                <li class="active"><a href="landingpage.html"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="https://www.pup.edu.ph/about/"><i class="fa fa-info-circle"></i> About</a></li>
+                <li><a href="https://www.pup.edu.ph/academic/"><i class="fa fa-graduation-cap"></i> Academic</a></li>
+                <li><a href="https://www.pup.edu.ph/students/"><i class="fas fa-user-graduate"></i> Student</a></li>
+                <li><a href="https://www.pup.edu.ph/researcher/"><i class="fa fa-flask"></i> Research</a></li>
+                <li><a href="https://www.pup.edu.ph/about/contactus"><i class="fas fa-phone-square"></i> Contact Us</a></li>
+            </ul>
+        </header>
+        
+        <div class="pupheader">
+            <p><b>POLYTECHNIC UNIVERSITY OF THE PHILIPPHINES</b></p>
+        </div>
+
+        <div class="puheader">
+            <p>THE COUNTRY 1ST POLYTECHNICU</p>
+        </div>
+        
+        <div class="content">
+            <div class="textBox">
+                <br><br><br><br>
+                <h2><span>"AUTHORIZATION "</span></h2>
+                <p> This website is designed specifically to demonstrate the function of authorization. 
+                    When you click the button without authorization, it will direct you to the PUP website and download a file automatically. 
+                    However, if you click the button with authorization, it will ask you for verification first before continuing. </p>
+            </div>
+        </div>
+
+        <div class="sci">
+            <li><a href="https://www.facebook.com/ThePUPOfficial"><img src="facebook.png"></a></li>
+            <li><a href="https://twitter.com/ThePUPOfficial"><img src="twitter.png"></a></li>
+            <li><a href="https://www.instagram.com/thepupofficial/"><img src="instagram.png"></a></li>
+        </div>
+
+        <div class="downloadNoAuth">
+            <a id="downloadNoAuth" onclick="withoutAuthorization()" class="btn">WithoutAuthorization > </a>
+        </div>
+
+        <div class="downloadWithAuth">
+            <a id="downloadWithAuth" onclick="withAuthorization()" class="btn">WithAuthorization > </a>
+        </div>
+
+        
+          <script>
+            function withAuthorization() {
+              window.location.href = "index.html";
+            }
+        
+            function withoutAuthorization() {
+              var downloadLink = document.createElement("a");
+              downloadLink.href = "data:text/plain;charset=utf-8," + encodeURIComponent("PUP Website: https://www.pup.edu.ph");
+              downloadLink.download = "pupweblink.txt";
+              downloadLink.style.display = "none";
+              document.body.appendChild(downloadLink);
+              downloadLink.click();
+              document.body.removeChild(downloadLink);
+        
+              var websiteUrl = "https://www.pup.edu.ph";
+              window.open(websiteUrl, "_blank");
+            }
+          </script>
+    </section>
+</body>
+</html>

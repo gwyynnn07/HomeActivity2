@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AUTHORIZATION PAGE</title>
+    <link rel="stylesheet" href="style1.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <div class="bg">
+    </div>
+
+</head>
+<body>
+    <header>
+        
+        <div class="main">
+            <br><br>
+            <div class="logo">
+                <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+                <a href="https://www.pup.edu.ph/"><img src="puplogo.png"></a>
+            </div>
+        </div>
+        
+        <div class="terms">
+            <footer>By using this service, you understood and agree to the PUP Online Services 
+                <a href="https://www.pup.edu.ph/terms/"><span class="color">Terms of Use</span></a> and <a href="https://www.pup.edu.ph/privacy/"><span class="color">Privacy Statement</span></a>.</footer>  
+        </div>
+
+        <div class="sidebar">
+            <ul>
+                <li class="active"><a href="landingpage.html"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="https://www.pup.edu.ph/about/"><i class="fa fa-info-circle"></i>About</a></li>
+                <li><a href="https://www.pup.edu.ph/academic/"><i class="fa fa-graduation-cap"></i>Academic</a></li>
+                <li><a href="https://www.pup.edu.ph/students/"><i class="fas fa-user-graduate"></i>Student</a></li>
+                <li><a href="https://www.pup.edu.ph/researcher/"><i class="fa fa-flask"></i>Research</a></li>
+                <li><a href="https://www.pup.edu.ph/about/contactus"><i class="fas fa-phone-square"></i>Contact Us</a></li>
+            </ul>
+
+            <section>
+                <i class="fas fa-bars"></i>
+            </section>
+        </div>
+    </header>
+
+    <form id="loginForm" action="" method="post" onsubmit="return validateForm()">
+        <h2>Please enter your username & password for Authorization:</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    
+        <input type="submit" value="Login">
+    </form>
+   
+    <script>
+        $(document).ready(function(){
+            $('i').click(function(){
+                $('ul').toggleClass('ul_show');
+                $('section').toggleClass('slide_image');
+            });
+            $('li').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+
+            $('.content-container').scrollTop($('.content-container')[0].scrollHeight);
+        });
+
+    function validateForm() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (username === 'ias_activity2' && password === 'InfoAssurSec#1') {
+            var downloadLink = document.createElement("a");
+            downloadLink.href = "data:text/plain;charset=utf-8," + encodeURIComponent("PUP Website: https://www.pup.edu.ph");
+            downloadLink.download = "pupweblink.txt";
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+
+            window.open("https://www.pup.edu.ph", "_blank");
+
+
+        } else if (username === null && password === null) {
+        } else {
+            alert("Wrong username or password. Access denied.");
+            promptPassword(); 
+        }
+    }
+        
+        document.getElementById('downloadWithAuth').addEventListener('click', function() {
+            promptPassword();
+        });
+
+    </script>
+
+</body>
+</html>
